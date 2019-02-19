@@ -1,0 +1,11 @@
+@import url("https://fonts.googleapis.com/css?family=Amatic+SC");
+
+$syne-bold-path:"/static/fonts/Syne-Bold.otf";
+$font-family-brand:"syne-bold";
+
+@font-face {
+    font-family: "syne-bold";
+    src: url($syne-bold-path) format("opentype");
+    font-weight: normal;
+    font-style: normal;
+}

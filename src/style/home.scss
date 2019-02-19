@@ -1,0 +1,36 @@
+
+.nav {
+    max-height: 100vh;
+
+    &__logo {
+        font-size: 4rem;
+        padding: 0;
+        margin: 1rem 0 0 0;
+        font-family: 'Amatic SC', cursive;
+        text-align: center;
+    }
+
+    &-items {
+        font-family: 'syne-bold', sans-serif;
+        display: flex;
+        flex-direction: column;
+        list-style: none;
+        cursor: pointer;
+
+        &__item {
+            max-width: fit-content;
+            font-size: 8rem;
+            transition: 1s;
+
+            &:hover {
+                text-decoration: line-through;
+                transform: translateX(5px);
+            }
+
+            &__link {
+                text-decoration: none;
+                color: black;
+            }
+        }
+    }
+}

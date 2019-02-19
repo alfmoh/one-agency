@@ -1,9 +1,9 @@
-body {
-  font-family: 'Helvetica Neue', sans-serif;
-  text-align: center;
-}
+@import "./fonts.scss";
+@import "./home.scss";
 
-img {
-  display: block;
-  margin: 50px auto;
+/*Override default link properities*/
+
+a:hover, a:focus, a:active {
+  text-decoration: none;
+  color: inherit;
 }
