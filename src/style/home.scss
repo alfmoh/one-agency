@@ -1,3 +1,23 @@
+.home {
+    display: flex;
+    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+
+    &-desc {
+        max-width: 50%;
+        font-size: 2rem;
+        margin-left: 4rem;
+        transform: translateX(-10px);
+        opacity: 0;
+
+        &__visible {
+            opacity: 1;
+            transition: opacity 1s;
+        }
+    }
+}
 
 .nav {
     max-height: 100vh;
@@ -5,9 +25,12 @@
     &__logo {
         font-size: 4rem;
         padding: 0;
-        margin: 1rem 0 0 0;
+        margin: 0 1rem 0 0;
+
         font-family: 'Amatic SC', cursive;
+        font-family: cursive;
         text-align: center;
+        float: right;
     }
 
     &-items {
@@ -16,6 +39,7 @@
         flex-direction: column;
         list-style: none;
         cursor: pointer;
+        margin-left: 1.5rem;
 
         &__item {
             max-width: fit-content;
@@ -23,14 +47,55 @@
             transition: 1s;
 
             &:hover {
-                text-decoration: line-through;
                 transform: translateX(5px);
             }
 
             &__link {
                 text-decoration: none;
                 color: black;
+                position: relative;
+
+                &::before, &::after {
+                    content: "";
+                    position: absolute;
+                    width: 0;
+                    height: 10px;
+                    top: 50%;
+                    margin-top: -.5px;
+                    background: #000;
+                }
+
+                &::before {
+                    left: -2.5px;
+                    transition: width 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
+                }
+
+                &::after {
+                    right: 2.5px;
+                    background: #000;
+                    transition: width 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
+                }
+
+                &:hover::before {
+                    background: #000;
+                    width: 100%;
+                }
+
+                &:hover::after {
+                    width: 100%;
+                }
             }
         }
+    }
+}
+
+@keyframes fadeInSlide {
+    from {
+        opacity: 0;
+        transform: translateX(-5px);
+    }
+
+    to {
+        opacity: 1;
     }
 }
