@@ -1,3 +1,7 @@
+.content--hidden {
+    display: none;
+}
+
 .home {
     display: flex;
     flex-wrap: wrap;
@@ -7,15 +11,11 @@
 
     &-desc {
         max-width: 50%;
-        font-size: 2rem;
+        font-size: 1.7rem;
         margin-left: 4rem;
         transform: translateX(-10px);
         opacity: 0;
-
-        &__visible {
-            opacity: 1;
-            transition: opacity 1s;
-        }
+        font-family: 'Roboto', sans-serif;
     }
 }
 

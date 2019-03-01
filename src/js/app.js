@@ -2,47 +2,45 @@ var $ = require('jquery');
 window.jQuery = window.$ = $;
 require('velocity-animate');
 
-import * as home from "./homepage-desc";
+let lastDescElement;
 
 if (module.hot) {
   module.hot.accept();
 }
 
-onMouseOverAnimate(".nav-items__item-about", home.about);
-onMouseOutAnimate(".nav-items__item-about");
+onMouseOverAnimate(".nav-items__item-about", ".home-desc__about");
+onMouseOutAnimate(".nav-items__item-about",".home-desc__about");
 
-onMouseOverAnimate(".nav-items__item-work", home.work);
-onMouseOutAnimate(".nav-items__item-work");
+onMouseOverAnimate(".nav-items__item-work", ".home-desc__work");
+onMouseOutAnimate(".nav-items__item-work",".home-desc__work");
 
-onMouseOverAnimate(".nav-items__item-contact", home.contact);
-onMouseOutAnimate(".nav-items__item-contact");
+onMouseOverAnimate(".nav-items__item-contact", ".home-desc__contact");
+onMouseOutAnimate(".nav-items__item-contact",".home-desc__contact");
 
 
-/* Helper functions */
-
-function onMouseOverAnimate(ele, content) {
+function onMouseOverAnimate(ele, descItem) {
   $(ele).on("mouseover", () => {
-    $(".home-desc").html(content)
+    if(lastDescElement)
+      $(lastDescElement).addClass("content--hidden");
+    $(".home-desc").append($(descItem))
+    $(descItem).removeClass("content--hidden")
+
     animateDesc(".home-desc");
   })
 }
 
-function onMouseOutAnimate(ele) {
+function onMouseOutAnimate(ele,descItem) {
   $(ele).on("mouseout", () => {
-    deAnimateDesc(".home-desc");
+    lastDescElement = descItem;
   })
 }
 
-function deAnimateDesc(ele) {
-  $(ele).removeClass("home-desc__visible")
-}
 
 function animateDesc(ele) {
   $(ele).velocity({
     opacity: 1,
   }, {
-      duration: 500,
+      duration: 1000,
     });
-  $(ele).addClass("home-desc__visible")
 }
 
