@@ -54,6 +54,7 @@
   ],
   "dependencies": {
     "jquery": "^3.3.1",
-    "velocity-animate": "^1.5.2"
+    "velocity-animate": "^1.5.2",
+    "velocity-ui-pack": "^1.2.2"
   }
 }
