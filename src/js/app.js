@@ -5,9 +5,9 @@ require('velocity-ui-pack');
 
 let lastDescElement;
 
-if (module.hot) {
-  module.hot.accept();
-}
+// if (module.hot) {
+//   module.hot.accept();
+// }
 
 onMouseOverAnimate(".nav-items__item-about", ".home-desc__about");
 onMouseOutAnimate(".nav-items__item-about", ".home-desc__about");
@@ -27,6 +27,7 @@ function onMouseOverAnimate(ele, descItem) {
 
     $(descItem).removeClass("content--hidden");
 
+
     animateDesc(descItem);
   })
 }
@@ -42,17 +43,42 @@ const navDot = $(".nav-logo__dot");
 
 var loadingSequence = [
   {
-    e: navLogo, p: { translateX: "-15px" }, 
+    e: navLogo,
+    p: { translateX: "-15px" },
     o: {
       duration: 800
     }
   },
   {
-    e: navDot, p: { translateY: "-15px" }, 
+    e: navDot,
+    p: { translateY: "-25px" },
+    o: { duration: 200 }
+  },
+  {
+    e: navDot,
+    p: { translateX: "-208px" },
+    o: { duration: 200 }
+  },
+]
+
+var unloadingSequence = [
+  {
+    e: navDot,
+    p: { translateY: "0px" },
+    o: { duration: 200 }
+  },
+  {
+    e: navDot,
+    p: { translateX: "0px" },
+    o: { duration: 200 }
+  },
+  {
+    e: navLogo,
+    p: { translateX: "15px" },
     o: {
       duration: 800
     }
-  },
+  }
 ]
 
 
@@ -62,8 +88,7 @@ $(navLogo).on("mouseover", () => {
 })
 
 $(navLogo).on("mouseout", () => {
-  $(navLogo).velocity("reverse");
-  $(navDot).velocity("reverse");
+  $.Velocity.RunSequence(unloadingSequence);
 })
 
 
