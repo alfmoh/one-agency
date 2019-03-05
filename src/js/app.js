@@ -91,6 +91,9 @@ $(navLogo).on("mouseout", () => {
   $.Velocity.RunSequence(unloadingSequence);
 })
 
+$(".home-desc__contact-btn").on("click",e=>{
+  e.preventDefault();
+})
 
 function animateDesc(ele) {
   $(ele).velocity({

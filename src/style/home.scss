@@ -2,6 +2,21 @@
     display: none;
 }
 
+.input--element {
+    &:focus {
+        outline: none;
+    }
+
+    &::placeholder {
+        opacity: .3;
+        font-size: 20px;
+        font-family: 'syne-bold', sans-serif;
+    }
+
+    width: 100%;
+    font-size: 20px;
+}
+
 .home {
     max-height: 100vh;
     display: flex;
@@ -16,11 +31,42 @@
         margin-left: 4rem;
         transform: translateX(-10px);
         font-family: 'Lato', sans-serif;
+
+        &__contact {
+            &-email-input {
+                border: none;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+                margin-bottom: 20px;
+            }
+
+            &-msg-input {
+                min-height: 30vh;
+            }
+
+            &-btn {
+                float: right;
+                background: none;
+                color: inherit;
+                border: 1px solid rgba(0, 0, 0, 0.6);
+                padding: 5px;
+                font: inherit;
+                font-size: 20px;
+                cursor: pointer;
+                outline: inherit;
+                background-size: 200% 100%;
+                background-image: linear-gradient(to left, transparent, transparent 50%, #00c6ff 50%, #00c6ff);
+                background-position: 100%;
+                transition: all .25s ease-in;
+
+                &:hover {
+                    background-position: 0 0;
+                }
+            }
+        }
     }
 }
 
 .nav {
-
     &-logo {
         font-size: 4rem;
         align-items: center;
@@ -38,7 +84,6 @@
         &__dot {
             display: inline-block;
             margin-left: -7px;
-
         }
     }
 

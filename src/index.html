@@ -15,13 +15,13 @@
         <!-- <h1 class="nav__logo">One.</h1> -->
         <ul class="nav-items">
           <li class="nav-items__item nav-items__item-about">
-            <a class="nav-items__item__link" href="/about.html">About</a>
+            About
           </li>
           <li class="nav-items__item nav-items__item-work">
             <a class="nav-items__item nav-items__item__link" href="/work.html">Work</a>
           </li>
           <li class="nav-items__item nav-items__item-contact">
-            <a class="nav-items__item__link" href="/contact.html">Contact</a>
+            Contact
           </li>
         </ul>
       </nav>
@@ -39,9 +39,16 @@
   <article class="home-desc__work content--hidden">
     Work
   </article>
-  <article class="home-desc__contact content--hidden">
-    Contact
-  </article>
+  <form class="home-desc__contact content--hidden">
+    <div class="home-desc__contact-email">
+        <input class="home-desc__contact-email-input input--element" type="email" placeholder="Email" >
+    </div>
+
+    <div class="home-desc__contact-msg">
+        <textarea class="home-desc__contact-msg-input input--element" type="text" placeholder="Message" ></textarea>
+    </div>
+    <button class="home-desc__contact-btn" >Submit</button>
+  </form>
   <a href="/" class="nav-logo">
     <h1 class="nav-logo__logo">One</h1>
     <span class="nav-logo__dot">.</span>
